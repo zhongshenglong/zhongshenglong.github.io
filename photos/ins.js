@@ -1,4 +1,4 @@
-/******/
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script>/******/
 (function(modules) { // webpackBootstrap
   /******/ // The module cache
   /******/
@@ -116,13 +116,14 @@
         var data = res.list[j].arr;
         var liTmpl = "";
         for (var i = 0, len = data.link.length; i < len; i++) {
-          var minSrc = 'https://raw.githubusercontent.com/zhongshenglong/blog-back-up/master/min_photos/' + data.link[i];
-          var src = 'https://raw.githubusercontent.com/zhongshenglong/blog-back-up/master/photos/' + data.link[i];
+			
+          var minSrc = 'https://raw.githubusercontent.com/zhongshenglong/Blog-Back-Up/master/master/min_photos/' + data.link[i];
+          var src = 'https://raw.githubusercontent.com/zhongshenglong/Blog-Back-Up/master/master/photos/' + data.link[i];
           var type = data.type[i];
           var target = src + (type === 'video' ? '.mp4' : '.jpg');
           src += '';
 
-          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope="" itemtype="http://schema.org/ImageObject">\
+          liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">\
                 <a href="' + src + '" itemprop="contentUrl" data-size="1080x1080" data-type="' + type + '" data-target="' + src + '">\
                   <img class="reward-img" data-type="' + type + '" data-src="' + minSrc + '" src="/assets/img/empty.png" itemprop="thumbnail" onload="lzld(this)">\
                 </a>\
@@ -133,7 +134,7 @@
         <ul class="img-box-ul">' + liTmpl + '</ul>\
         </section>';
       }
-      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope="" itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
+      document.querySelector('.instagram').innerHTML = '<div class="photos" itemscope itemtype="http://schema.org/ImageGallery">' + ulTmpl + '</div>';
       createVideoIncon();
       _view2.default.init();
     };
